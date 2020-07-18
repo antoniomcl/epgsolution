@@ -1,0 +1,46 @@
+<h4>{{programTitle}}</h4>
+<div style="padding-left: 50px;" >
+    RQ.2.1 - Create a program<br>RQ.2.5 - Update the program by id
+</div>
+<hr>
+<div class="container">
+    <form (ngSubmit) = 'saveProgram()' #progamForm = 'ngForm'>
+        <fieldset class="form-group">
+            <label>Channel</label>
+            <select [(ngModel)] = "program.channel.id" name="channel" class="form-control">
+                <option *ngFor="let channel of channels" [value]="channel.id" [label]="channel.name"></option>
+            </select>
+        </fieldset>
+        
+        <fieldset class="form-group">
+            <label>Image URL</label>
+            <input required='required' type='text' [(ngModel)] = "program.imageUrl" name='imageUrl' class='form-control'>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Title</label>
+            <input required='required' type='text' [(ngModel)] = "program.title" name='title' class='form-control'>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input required='required' type='text' [(ngModel)] = "program.description" name='description' class='form-control'>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Start Date</label>
+            <input type="datetime"
+                [ngModel] = "program.startDate | date: 'yyyy-MM-dd H:MM'"
+                name='targetDate' required='required' class='form-control'>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>End Date</label>
+            <input type='datetime'
+                [ngModel] = "program.endDate | date: 'yyyy-MM-dd H:MM'"
+                name='targetDate' required='required' class='form-control'>
+        </fieldset>
+
+        <button type="submit" class='btn btn-success'>Save</button>
+    </form>
+</div>

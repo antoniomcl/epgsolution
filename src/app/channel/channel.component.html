@@ -1,0 +1,28 @@
+<h4>New Channel</h4>
+<div style="padding-left: 50px;">
+    RQ.1.2 - Create a channel
+</div>
+<hr>
+<div class="container">
+    
+    <form (ngSubmit) = 'saveChannel()' #programForm = 'ngForm'>
+        <fieldset class="form-group">
+            <label>Name</label>
+            <input required='required' type='text' [(ngModel)]= 'channel.name' name='description' class='form-control'>
+        </fieldset>
+        
+        <fieldset class="form-group">
+            <label>Position</label>
+            <input required='required' type='text' [(ngModel)] = "channel.position" name='position' class='form-control'>
+        </fieldset>
+        
+        <fieldset class="form-group">
+            <label>Category</label>
+            <select [(ngModel)] = "channel.category" name="category" class="form-control">
+                <option *ngFor="let category of categoryOptions" [value]="category" [label]="categoryTypes[category]"></option>
+            </select>
+        </fieldset>
+
+        <button type="submit" class='btn btn-success'>Save</button>
+    </form>
+</div>

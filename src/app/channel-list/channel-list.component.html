@@ -1,0 +1,29 @@
+
+<h4>Channels</h4>
+<div style="padding-left: 50px;">
+    RQ.1.1 - Provides all channels
+</div>
+
+<div class="alert alert-success" *ngIf='message'>{{message}} </div>
+
+<div class="container">
+<table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Category</th>
+            <th></th>
+        </thead>
+        <tbody *ngFor='let channel of channels'>
+            <tr>
+                <td><b>{{channel.name}}</b></td>
+                <td>{{channel.position}}</td>
+                <td>{{channel.category}}</td>
+                <td><button (click) = 'listPrograms(channel.id)'class="btn btn-outline-info btn-sm" >List Programs</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click) = 'addChannel()' class="btn btn-success">Add Channel</button>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<h4>Channel</h4>
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Category</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>{{channel.name}}</b></td>
+            <td>{{channel.position}}</td>
+            <td>{{channel.category}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Programs</h4>
+<div style="padding-left: 50px;" >
+    RQ.2.2 - Provides all programs by channel id<br>RQ.2.4 - Delete the program by id
+</div>
+<div class="alert alert-success" *ngIf='message'>{{message}} </div>
+<div class="container">
+<table class="table">
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th></th>
+        </thead>
+        <tbody *ngFor='let program of programs'>
+            <tr>
+                <td><b>{{program.title}}</b></td>
+                <td>{{program.description}}</td>
+                <td><img src="{{program.imageUrl }}" alt="{{ program.title }}" style="max-height: 25px;"></td>
+                <td>
+                    <button (click) = 'updateProgram(program.id)'class="btn btn-primary btn-sm" >Edit</button>
+                    &nbsp;
+                    <button (click) = 'deleteProgram(program.id)'class="btn btn-danger btn-sm" >Del</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click) = 'addProgram()' class="btn btn-success">Add Program</button>
+    </div>
+</div>
